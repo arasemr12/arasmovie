@@ -4,6 +4,7 @@ import Home from "./home";
 import { ApiResponse } from "@/types/api";
 import { MovieSearchResult } from "@/types/movie";
 import { searchMovies } from "@/lib/movie";
+import { Metadata } from "next";
 
 export default async function Index() {
   let coo = await cookies();
