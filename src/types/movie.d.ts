@@ -12,6 +12,7 @@ export interface MovieSearchResult {
     release_date: string;
     title: string;
     name: string;
+    original_name: string;
     video: boolean;
     vote_average: number;
     vote_count: number;

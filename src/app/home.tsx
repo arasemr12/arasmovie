@@ -4,54 +4,39 @@ import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { Input } from "@/components/ui/input";
 import { Spinner } from "@/components/ui/spinner";
-import { ApiResponse } from "@/types/api";
 import { MovieSearchResult } from "@/types/movie";
-import { SubmitEvent, useEffect, useRef, useState } from "react";
-import { getSecret, setSecret } from "./actions";
+import { SubmitEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { searchMovies } from "@/lib/movie";
+import { toast } from "sonner";
 
-export default function Home({initalMovies}: {initalMovies:MovieSearchResult[]}) {
+export default function Home({ initalMovies }: { initalMovies: MovieSearchResult[] }) {
   const [search, setSearch] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [results,setResults] = useState<MovieSearchResult[]>(initalMovies);
+  const [results, setResults] = useState<MovieSearchResult[]>(initalMovies);
 
   const router = useRouter();
 
-  const password = useRef<string>("");
-
-  const logout = () => {
-    setSecret("");
-    router.push("/");
-  };
-
-  const handleSearch = async(e?: SubmitEvent<HTMLFormElement>) => {
+  const handleSearch = async (e: SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setLoading(true);
-    if(e) e.preventDefault();
-    
-    try {
 
+    try {
       let re = await searchMovies(search);
 
       setResults(re);
       setLoading(false);
     } catch (error) {
+      let errorMessage = "Unknown error";
+
+      if(error instanceof Error){
+        errorMessage = error?.message || "Unknown error";
+      };
+
+      toast(errorMessage);
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    (async() => {
-        let p = await getSecret();
-        password.current = p || "";
-
-        //handleSearch();
-    })();
-    /*if(!p) return;
-
-    password.current = p;
-    handleSearch();*/
-  },[]);
 
   return (
     <div className="w-full h-auto flex flex-col items-center">
@@ -67,15 +52,12 @@ export default function Home({initalMovies}: {initalMovies:MovieSearchResult[]})
         <div className="flex flex-row items-center justify-between gap-3 w-full max-w-md mb-4">
           <span>holeder00@proton.me</span>
         </div>
-        <div className="flex flex-row items-center justify-between gap-3 w-full max-w-md mb-8">
-            <Button onClick={logout} variant={"destructive"}>Logout</Button>
-        </div>
         {loading ? (<>
-          <Spinner/>
+          <Spinner />
         </>) : (
           <div className="w-full grid lg:grid-cols-4 grid-cols-1 gap-3">
             {results.map((movie) => (
-              <Movie key={movie.id || Math.random()} movie={movie}/>
+              <Movie key={movie?.id || Math.random()} movie={movie} />
             ))}
           </div>
         )}
