@@ -9,6 +9,7 @@ import { SubmitEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { searchMovies } from "@/lib/movie";
 import { toast } from "sonner";
+import BannerAds from "@/components/general/BannerAds";
 
 export default function Home({ initalMovies }: { initalMovies: MovieSearchResult[] }) {
   const [search, setSearch] = useState<string>("");
@@ -61,6 +62,7 @@ export default function Home({ initalMovies }: { initalMovies: MovieSearchResult
             ))}
           </div>
         )}
+        <BannerAds/>
       </div>
     </div>
   );

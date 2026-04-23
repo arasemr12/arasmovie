@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Index() {
-  let movies = await searchMovies("gilmore girls");
+  let movies = await searchMovies("spider");
   let initalmovies:MovieSearchResult[] = movies;
 
   return (<Home initalMovies={initalmovies}/>);

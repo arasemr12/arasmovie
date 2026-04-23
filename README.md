@@ -1,36 +1,145 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 Aras Movies
 
-## Getting Started
+A modern, fast, and user-friendly movie & TV show discovery platform.  
+Built with Next.js.
 
-First, run the development server:
+----------
+
+## 🚀 Features
+
+-   🎥 Browse movies and TV shows
+    
+-   🔍 Search functionality
+    
+-   ⚡ Fast page transitions (SSR / App Router)
+    
+-   📱 Fully responsive design
+
+
+----------
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+
+![Home](./screenshots/home.png)
+
+### 🎬 Movie Page
+
+![Movie](./screenshots/movie.png)
+
+----------
+
+## 🛠️ Tech Stack
+
+-   ⚛️ React
+    
+-   ▲ Next.js
+    
+-   🎨 Tailwind CSS
+    
+-   🔔 shadcn/ui
+    
+-   🌐 API Integration
+----------
+
+## 📦 Installation
+
+To run the project locally:
 
 ```bash
-npm run dev
-# or
+# clone the repository
+git clone https://github.com/arasemr12/arasmovie.git
+
+# navigate into the project
+cd arasmovie
+
+# install dependencies
+yarn install
+
+# start development server
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open in your browser:  
+👉 [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+----------
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ⚙️ Environment Variables
 
-## Learn More
+Copy the example file:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+cp .env.example .env
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Add your API keys:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```env
+NEXT_PUBLIC_API_URL=your_api_url
+```
 
-## Deploy on Vercel
+Copy the api example file:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+cd api
+cp .env.example .env
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Add your API keys:
+
+```env
+TMDB_API_KEY="your_tmdb_api_key"
+```
+
+----------
+
+## 📁 Project Structure
+
+```
+/src/app
+/src/components
+/src/lib
+/src/types
+/public
+/api
+/api/routes
+```
+
+----------
+
+## 🌍 Deployment
+
+This project can be easily deployed on:
+
+-   ▲ Vercel (recommended)
+    
+-   Netlify
+    
+-   VPS (Nginx + Node.js)
+    
+
+----------
+
+## ⚠️ Disclaimer
+
+This project is intended for educational and portfolio purposes only.  
+All content is provided via third-party APIs.
+
+----------
+
+## 📄 License
+
+MIT License
+
+----------
+
+## 👤 Author
+
+**arasemr1234**
+
+-   GitHub: [https://github.com/arasemr12](https://github.com/arasemr12)
+    
+
+----------
